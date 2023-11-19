@@ -8,7 +8,7 @@ Created via PyQt.
 User-Friendly: The application has an easy to understand interface.
 
 ## Status
-/StudyBuddy_Source migrated to /Study-Buddy as of 11/06/2023.
+/StudyBuddy_Source migrated to /Study-Buddy as of 11/06/2023. <br>
 /StudyBuddy_Source published since 10/19/2020.
 
 ## Instructions

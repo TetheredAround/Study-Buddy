@@ -1,4 +1,5 @@
 import sys
+import os
 import subprocess
 
 from PyQt5 import *
@@ -1014,6 +1015,12 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     #app.setStyleSheet('Breeze')
 
+    dpi = QApplication.primaryScreen().logicalDotsPerInch()
+
+    adjusted_height = (QDesktopWidget().screenGeometry().height()/(dpi/96))
+
+    scale = float(((adjusted_height* 0.75)/1440))
+
     try:
         config.read('config.txt')
     except FileNotFoundError:
@@ -1021,7 +1028,7 @@ if __name__ == '__main__':
 
     if config.get('DEFAULT', 'configured') == '0':
         config['DEFAULT']['configured'] = '1'
-        config['DEFAULT']['multiplier'] = str(float(((QDesktopWidget().screenGeometry().height() * 0.75)/1440)))
+        config['DEFAULT']['multiplier'] = str(scale)
         with open('config.txt', 'w') as configfile:
             config.write(configfile)
         try:
